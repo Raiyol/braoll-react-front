@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.user_menu {
+  button {
+    .MuiButton-label {
+      font-size: 1rem;
+      color: white;
+      text-transform: none;
+      display: flex;
+      column-gap: 0.5rem;
+      span {
+        &:hover {
+          color: #d4d4d4;
+        }
+      }
+      img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.more {
+  .MuiButton-label {
+    span {
+      text-transform: none;
+      font-size: $header_font_size;
+      color: white;
+      &:hover {
+        color: #d4d4d4;
+      }
+    }
+  }
+}

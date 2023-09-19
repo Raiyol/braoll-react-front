@@ -1,0 +1,118 @@
+@import './../../styles/variables.scss';
+
+.buttons_group {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  div {
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.toggle_group {
+  background-color: rgba(255, 255, 255, 0.9);
+  button {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.novels {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  row-gap: 0.5rem;
+  .list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    .novel {
+      display: flex;
+      column-gap: 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--color-border);
+      &:last-child {
+        border-bottom: 0;
+      }
+      h4 {
+        margin: 0;
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.25rem;
+        img {
+          width: 12rem;
+          height: 16rem;
+          border-radius: 0.5rem;
+        }
+        .rating {
+          height: 1rem;
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        width: 100%;
+        .genres {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        .infos {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          div {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 14px;
+            color: var(--color-border);
+            svg {
+              color: $primary;
+            }
+          }
+        }
+        p {
+          margin: 0;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .novels {
+    ul {
+      li {
+        flex-direction: column;
+        row-gap: 0.5rem;
+        .left {
+          row-gap: 0;
+          h4 {
+            margin-bottom: 0.5rem;
+            text-align: center;
+          }
+          .rating {
+            margin-bottom: 0.5rem;
+          }
+        }
+        .right {
+          .genres,
+          .infos {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

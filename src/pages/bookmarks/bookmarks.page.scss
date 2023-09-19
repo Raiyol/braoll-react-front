@@ -1,0 +1,9 @@
+@import '../../styles/variables.scss';
+
+$border: 1px solid var(--color-border);
+$radius: 0.25rem;
+
+.bookmarks {
+  border: $border;
+  border-radius: $radius;
+}

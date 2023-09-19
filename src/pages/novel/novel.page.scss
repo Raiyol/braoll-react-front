@@ -1,0 +1,123 @@
+section {
+  &.novel {
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    img {
+      width: 201px;
+      height: 268px;
+      border-radius: 0.5rem;
+      margin-right: 1rem;
+    }
+    h2,
+    h5,
+    p {
+      margin: 0;
+    }
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+    }
+    h5 {
+      color: var(--color-border);
+    }
+    .summary {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 0.5rem;
+      p {
+        font-size: 0.9375rem;
+      }
+    }
+    .left,
+    .right {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.75rem;
+    }
+    .right {
+      width: 100%;
+    }
+    .genres {
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        a {
+          cursor: pointer;
+        }
+      }
+    }
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      & > li {
+        padding: 0.5rem;
+        border-bottom: 2px solid var(--color-border);
+        &:last-child {
+          border-bottom: 0;
+        }
+        strong {
+          font-weight: 600;
+        }
+      }
+      .flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .flex-center {
+        padding: 0.75rem;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  section {
+    &.novel {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(6);
+      grid-template-areas:
+        'title'
+        'img'
+        'summary'
+        'genres'
+        'rating'
+        'chapters'
+        'author'
+        'status'
+        'date';
+      @each $attr, $area in (('.title', title), ('.img', img), ('.summary', summary), ('.genres', genres), ('.rating', rating), ('.content', chapters)) {
+        #{$attr} {
+          grid-area: $area;
+        }
+      }
+      .img {
+        margin: auto;
+      }
+      .title {
+        text-align: center;
+      }
+      .content {
+        .tabs {
+          margin-top: 0;
+        }
+      }
+      .chapters {
+        .list {
+          li {
+            padding: 0.375rem;
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+}

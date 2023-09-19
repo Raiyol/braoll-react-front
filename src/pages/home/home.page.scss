@@ -1,0 +1,93 @@
+@import '../../styles/variables.scss';
+
+$border: 1px solid var(--color-border);
+$radius: 0.25rem;
+
+.recents {
+  border: $border;
+  border-radius: $radius;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  thead {
+    background-color: var(--color-box);
+  }
+  th,
+  td {
+    padding: 0.5rem;
+  }
+  th {
+    color: #3f51b5;
+    text-align: start;
+  }
+  td {
+    border-top: $border;
+    .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    strong {
+      font-weight: 600;
+      padding-right: 0.25rem;
+    }
+  }
+  .flex-between {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+  .primary {
+    span {
+      color: $primary;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pc {
+    display: none;
+    &.flex-between {
+      display: none;
+    }
+  }
+  .recents {
+    table {
+      tbody {
+        tr {
+          &:first-child {
+            td {
+              border-top: 0;
+            }
+          }
+          td {
+            .novel {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: block;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
+            span {
+              color: grey;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .recents {
+    table {
+      line-height: 1.25rem;
+      font-size: 14px;
+    }
+  }
+}

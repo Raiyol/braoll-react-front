@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.input_form {
+  display: flex;
+  flex-direction: column;
+  height: 75px;
+  label {
+    font-weight: 600;
+  }
+  input {
+    width: calc(100% - 0.75rem * 2);
+    border-radius: 6px;
+    border: 1px solid #e1e4e8;
+    height: 2rem;
+    padding: 0 0.75rem;
+    margin-top: 0.25rem;
+    box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0, 0, 0, 0.08) inset;
+    background-color: #fafbfc;
+    &:focus {
+      border-color: #b3d1f3;
+      background-color: white;
+    }
+  }
+}
