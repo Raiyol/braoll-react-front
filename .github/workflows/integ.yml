@@ -3,9 +3,9 @@ name: Deploy Integ
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ "integ" ]
+    branches: ['integ']
   pull_request:
-    branches: [ "integ" ]
+    branches: ['integ']
 # Allows you to run this workflow manually from the Actions tab
 
 jobs:
@@ -14,20 +14,19 @@ jobs:
     # The type of runner that the job will run on
     runs-on: [self-hosted, integ]
 
-    strategy: 
+    strategy:
       matrix:
         node-version: [14.17.x]
-    
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-# Runs a single command using the runners shell
+      # Runs a single command using the runners shell
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Run a multi-line script
       - run: npm install
       - run: npm run build --if-present
