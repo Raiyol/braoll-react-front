@@ -4,7 +4,7 @@ export abstract class BaseApiService {
   protected static baseUrl: string;
 
   static getFullUrl(subpath: string): string {
-    return `${process.env.REACT_APP_API_URL}/${this.baseUrl}/${subpath}`;
+    return `/api/${this.baseUrl}/${subpath}`;
   }
 
   static get<T>(subpath: string, params?: Object): Promise<AxiosResponse<T>> {
