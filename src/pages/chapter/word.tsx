@@ -43,7 +43,9 @@ export default function Word({ def, cn, py }: Props) {
         </div>
       }
     >
-      <span onClick={() => setOpen(!open)}>{cn}</span>
+      <span className={open ? 'cn-box' : ''} onClick={() => setOpen(!open)}>
+        {cn}
+      </span>
     </HtmlTooltip>
   );
 }

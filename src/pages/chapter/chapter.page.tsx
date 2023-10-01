@@ -42,7 +42,7 @@ export default function Chapter({ match }: RouteComponentProps<{ url: string; nu
     NovelsApi.getChaptersByNovelUrlChapter(match.params.url, match.params.num)
       .then((resp) => {
         setChapter(resp.data);
-        document.title = `#${resp.data.chapter} ${resp.data.title_en} - Broall`;
+        document.title = `#${resp.data.number} ${resp.data.titleEn} - Broall`;
       })
       .catch(() => setNotFound(true));
   }, [match]);
@@ -52,13 +52,13 @@ export default function Chapter({ match }: RouteComponentProps<{ url: string; nu
       if (!chapter) return;
       switch (event.key) {
         case 'ArrowLeft':
-          if (chapter.firstChapter !== chapter.chapter) {
-            history.push(`${chapter.chapter - 1}`);
+          if (chapter.firstChapter !== chapter.number) {
+            history.push(`${chapter.number - 1}`);
           }
           return;
         case 'ArrowRight':
-          if (chapter.lastChapter !== chapter.chapter) {
-            history.push(`${chapter.chapter + 1}`);
+          if (chapter.lastChapter !== chapter.number) {
+            history.push(`${chapter.number + 1}`);
           }
           return;
         default:
@@ -110,8 +110,8 @@ export default function Chapter({ match }: RouteComponentProps<{ url: string; nu
   const navigation = () => (
     <div className="navigate">
       <div className="button">
-        {chapter.chapter !== chapter.firstChapter && (
-          <Button component={Link} to={`/novels/${match.params.url}/chapters/${chapter.chapter - 1}`} variant="outlined" color="primary">
+        {chapter.number !== chapter.firstChapter && (
+          <Button component={Link} to={`/novels/${match.params.url}/chapters/${chapter.number - 1}`} variant="outlined" color="primary">
             <SkipPrevious />
           </Button>
         )}
@@ -120,8 +120,8 @@ export default function Chapter({ match }: RouteComponentProps<{ url: string; nu
         <Menu />
       </Button>
       <div className="button">
-        {chapter.chapter !== chapter.lastChapter && (
-          <Button component={Link} to={`/novels/${match.params.url}/chapters/${chapter.chapter + 1}`} variant="outlined" color="primary">
+        {chapter.number !== chapter.lastChapter && (
+          <Button component={Link} to={`/novels/${match.params.url}/chapters/${chapter.number + 1}`} variant="outlined" color="primary">
             <SkipNext />
           </Button>
         )}
@@ -137,7 +137,7 @@ export default function Chapter({ match }: RouteComponentProps<{ url: string; nu
             {chapter.name}
           </Link>
           <h2>
-            {chapter.chapter}: {chapter.title_en}
+            {chapter.number}: {chapter.titleEn}
           </h2>
         </div>
         <ActionsButtons />

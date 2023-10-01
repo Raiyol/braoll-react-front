@@ -41,6 +41,8 @@
     p {
       margin: 0;
       &.cn {
+        letter-spacing: 1px;
+
         span {
           cursor: pointer;
         }
@@ -72,6 +74,11 @@
       padding-top: 2px;
     }
   }
+}
+
+.cn-box {
+  background-color: var(--color-box);
+  border-radius: 5px;
 }
 
 .comments {

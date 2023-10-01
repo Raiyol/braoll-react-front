@@ -123,11 +123,10 @@ type ChapterDict = {
 
 type Chapter = {
   id: number;
-  id_novel: number;
-  chapter: 5;
+  number: 5;
   date: string;
-  title_en: string;
-  title_cn: string;
+  titleEn: string;
+  titleCn: string;
   name: string;
   content: ChapterContent[];
   dict: ChapterDict;
